@@ -1,5 +1,5 @@
-var ready=function(){
-var container = document.querySelector(".container")
+var WestDragonTab = (function(){
+
 
 var containerClickHandler = function (evt) {
     var currentElement = evt.target;
@@ -27,7 +27,18 @@ var containerClickHandler = function (evt) {
         tabContentContainer.children[tabIndex].classList.add("active")
     }
 }
-
-container.addEventListener("click",containerClickHandler);
+function init(){
+    var container = document.querySelectorAll(".tab-container")
+    console.log(container)
+    container.forEach(function(tabContainer){
+        console.log(tabContainer)
+        tabContainer.addEventListener("click",containerClickHandler);
+    });
 }
-window.addEventListener("load", ready)
+
+return {init:init}
+
+})();
+
+
+WestDragonTab.init();
